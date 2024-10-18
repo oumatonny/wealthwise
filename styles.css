@@ -1,0 +1,160 @@
+:root {
+    --primary: #1e009f;
+    --primary-light: #0022d2;
+    --golden: #ffb800;
+    --golden-dark: #d89b00;
+    --black: #000000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff;
+    font-size: 14px;
+}
+
+.sidebar {
+    background-color: var(--primary);
+    color: white;
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    color: var(--golden);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card {
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-light);
+}
+
+.btn-golden {
+    background-color: var(--golden);
+    border-color: var(--golden);
+    color: var(--black);
+}
+
+.btn-golden:hover {
+    background-color: var(--golden-dark);
+    border-color: var(--golden-dark);
+    color: var(--black);
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-golden {
+    color: var(--golden) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.bg-golden {
+    background-color: var(--golden) !important;
+}
+
+.list-group-item {
+    transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 300px;
+}
+
+.floating-whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.floating-whatsapp:hover {
+    background-color: #128C7E;
+    color: #FFF;
+    transform: scale(1.1);
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.expense-item input {
+    width: 70%;
+}
+
+.expense-item .btn-group {
+    width: 25%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity:  1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        padding: 48px 0 0;
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    }
+}
