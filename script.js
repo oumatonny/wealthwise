@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const incomeSources = document.getElementById('incomeSources');
     const generateExpensesBtn = document.getElementById('generateExpenses');
     const exportPDFBtn = document.getElementById('exportPDF');
+    const exportPDFBtn2 = document.getElementById('exportPDF2');
     const addExpenseBtn = document.getElementById('addExpense');
     const expensesContainer = document.getElementById('expensesContainer');
     const successSound = document.getElementById('successSound');
@@ -100,6 +101,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     exportPDFBtn.addEventListener('click', function() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(22);
+        doc.setTextColor(30, 0, 159); // Primary color
+        doc.text('WealthWise Financial Report', 20, 30);
+
+        doc.setFontSize(16);
+        doc.setTextColor(0, 0, 0); // Black color
+        doc.text('Income Sources:', 20, 50);
+        let yPos = 60;
+        incomeSources.querySelectorAll('li').forEach(item => {
+            doc.setFontSize(12);
+            doc.text(item.textContent, 20, yPos);
+            yPos += 10;
+        });
+
+        doc.setFontSize(16);
+        doc.text('Expenses:', 20, yPos + 10);
+        yPos += 20;
+
+        expenses.forEach(expense => {
+            doc.setFontSize(14);
+            doc.setTextColor(0, 34, 210); // Primary light color
+            doc.text(`${expense.name}: ${expense.amount.toFixed(2)}`, 20, yPos);
+            yPos += 10;
+        });
+
+        // Save the PDF
+        doc.save('WealthWise_Report.pdf');
+    });
+    exportPDFBtn2.addEventListener('click', function() {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
